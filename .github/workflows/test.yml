@@ -1,0 +1,39 @@
+# This runs all blankly Module Tests
+
+name: blankly Module Tests
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      max-parallel: 1
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        python-version: ['3.7', '3.8', '3.9', '3.10']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install blankly
+        pip install pytest
+
+    - name: Inject Keys
+      run: |
+        echo "$KEYS_FILE" > ./keys.json
+      shell: bash
+      env:
+        KEYS_FILE: ${{ secrets.SANDBOX_KEYS }}
+    - name: Run test file
+      run: |
+        pytest
