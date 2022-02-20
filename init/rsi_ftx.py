@@ -32,10 +32,10 @@ if __name__ == "__main__":
     strategy = blankly.Strategy(exchange)
 
     # Run the price event function every time we check for a new price - by default that is 15 seconds
-    strategy.add_price_event(price_event, symbol='BTC-USDT', resolution='1d', init=init)
+    strategy.add_price_event(price_event, symbol='BTC-USD', resolution='1d', init=init)
 
     # Start the strategy. This will begin each of the price event ticks
     # strategy.start()
     # Or backtest using this
-    results = strategy.backtest(to='1y', initial_values={'USDT': 10000})
+    results = strategy.backtest(to='1y', initial_values={'USD': 10000})
     print(results)
