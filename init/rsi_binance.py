@@ -5,12 +5,12 @@ def price_event(price, symbol, state: blankly.StrategyState):
     """ This function will give an updated price every 15 seconds from our definition below """
     state.variables['history'].append(price)
     rsi = blankly.indicators.rsi(state.variables['history'])
-    if rsi[-1] < 30 and not state.variables['owns_position']:
+    if rsi[-1] < 40 and not state.variables['owns_position']:
         # Dollar cost average buy
         buy = blankly.trunc(state.interface.cash/price, 2)
         state.interface.market_order(symbol, side='buy', size=buy)
         state.variables['owns_position'] = True
-    elif rsi[-1] > 70 and state.variables['owns_position']:
+    elif rsi[-1] > 60 and state.variables['owns_position']:
         # Dollar cost average sell
         curr_value = blankly.trunc(state.interface.account[state.base_asset].available, 2)
         state.interface.market_order(symbol, side='sell', size=curr_value)
