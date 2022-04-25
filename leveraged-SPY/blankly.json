@@ -1,0 +1,22 @@
+{
+    "main_script": "./leveragedSPY.py",
+    "python_version": "3.9",
+    "requirements": "./requirements.txt",
+    "working_directory": ".",
+    "ignore_files": [
+        "price_caches"
+    ],
+    "backtest_args": {
+        "to": "1y"
+    },
+    "screener": {
+        "schedule": "30 14 * * 1-5"
+    },
+    "type": "strategy",
+    "model_id": "KhNHPBt4uTLdAdifd9QQ",
+    "model_name": "Risk On or Risk Off Leveraged S&P 500",
+    "api_key": "Ej51rYC2aFcif4RQLfo5KotkHCv2",
+    "api_pass": "ce90c7aa-8680-4136-bcc9-043079e2ce61",
+    "plan": "medium",
+    "project_id": "Ej51rYC2aFcif4RQLfo5KotkHCv2"
+}
