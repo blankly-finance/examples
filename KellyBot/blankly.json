@@ -1,0 +1,15 @@
+{
+  "main_script": "./kellybot.py",
+  "python_version": "3.7",
+  "requirements": "./requirements.txt",
+  "working_directory": ".",
+  "ignore_files": [
+    "price_caches"
+  ],
+  "backtest_args": {
+    "to": "1y"
+  },
+  "project_id": "",
+  "model_id": "",
+  "model_name": ""
+}
