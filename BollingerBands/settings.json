@@ -24,6 +24,7 @@
     },
     "ftx": {
       "cash": "USD"
+      "ftx_tld": "us"
     },
     "kucoin": {
       "cash": "USDT"
